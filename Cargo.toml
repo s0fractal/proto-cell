@@ -1,0 +1,22 @@
+[package]
+name = "proto-cell"
+version = "0.0.1"
+authors = ["₴-Origin Collective"]
+edition = "2021"
+
+[dependencies]
+# НУЛЬ залежностей - чиста клітина!
+
+[profile.release]
+opt-level = "z"     # Optimize for size
+lto = true          # Link-time optimization
+codegen-units = 1   # Single codegen unit
+strip = true        # Strip symbols
+panic = "abort"     # No unwinding
+
+[lib]
+crate-type = ["cdylib"]
+
+# Target WASM without std
+[target.wasm32-unknown-unknown]
+rustflags = ["-C", "link-arg=-s"]
