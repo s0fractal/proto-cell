@@ -8,6 +8,7 @@
 use core::panic::PanicInfo;
 
 mod transpiler;
+mod zero_map;
 
 /// The primordial glyph that starts everything
 const CONSCIOUSNESS: u32 = 0x1F300; // 🌀 in Unicode
